@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Banner.png" type="Texture" id=1]
+[ext_resource path="res://MenuButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Options.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Screenshot.PNG" type="Texture" id=4]
+[ext_resource path="res://FadeIn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TitleScreen.gd" type="Script" id=6]
+[ext_resource path="res://light.png" type="Texture" id=7]
+
+[node name="TitleScreen" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 90.0
+margin_top = 50.0
+margin_right = 1100.0
+margin_bottom = 650.0
+rect_scale = Vector2( 0.839126, 0.839126 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="Menu"]
+margin_right = 1010.0
+margin_bottom = 300.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+
+[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+margin_top = 304.0
+margin_right = 1010.0
+margin_bottom = 604.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
+margin_right = 706.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="StartGame" parent="Menu/CenterRow/Buttons" instance=ExtResource( 2 )]
+margin_right = 320.0
+rect_min_size = Vector2( 320, 80 )
+size_flags_horizontal = 0
+size_flags_vertical = 2
+flat = true
+scene_to_load = "res://World.tscn"
+
+[node name="Options" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
+margin_top = 152.0
+margin_right = 180.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 180, 80 )
+size_flags_horizontal = 0
+size_flags_vertical = 2
+flat = true
+scene_to_load = "res://AboutMenu.tscn"
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
+margin_left = 710.0
+margin_right = 1010.0
+margin_bottom = 300.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Screenshot" type="TextureRect" parent="Menu/CenterRow/CenterContainer"]
+margin_right = 300.0
+margin_bottom = 300.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="FadeIn" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.0392157, 0.0352941, 0.0313726, 1 )
+show_behind_parent = true
+position = Vector2( 500.434, 323.634 )
+scale = Vector2( 110.12, 48.7489 )
+texture = ExtResource( 7 )
+[connection signal="pressed" from="Menu/CenterRow/Buttons/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/Options" to="." method="_on_Options_pressed"]
