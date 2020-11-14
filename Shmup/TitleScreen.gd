@@ -7,4 +7,6 @@ func _ready():
 func _on_Button_pressed(scene_to_load):
 	get_tree().change_scene(scene_to_load)
 
+func _on_root_resize():
+	Control.rect_size =  get_tree().root.size;
 
