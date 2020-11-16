@@ -1,6 +1,9 @@
-[gd_resource type="TileSet" load_steps=3 format=2]
+[gd_resource type="TileSet" load_steps=4 format=2]
 
 [ext_resource path="res://light.png" type="Texture" id=1]
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -8.13854, -8.26423, -8.0061, 7.95879, 8.08449, 7.89258, 8.15071, -7.99937 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -13,6 +16,7 @@ extents = Vector2( 8, 8 )
 0/region = Rect2( 0, 0, 16, 16 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 8, 8 )
+0/occluder = SubResource( 2 )
 0/navigation_offset = Vector2( 8, 8 )
 0/shape_offset = Vector2( 8, 8 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 8, 8 )
