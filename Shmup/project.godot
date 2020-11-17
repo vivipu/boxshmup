@@ -28,8 +28,13 @@ config/windows_native_icon="res://lightyellow.ico"
 
 [display]
 
+window/size/resizable=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "smoothing" )
 
 [input]
 
