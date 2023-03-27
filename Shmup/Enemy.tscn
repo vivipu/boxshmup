@@ -10,7 +10,7 @@ extents = Vector2( 7, 7 )
 extents = Vector2( 9, 9 )
 
 [node name="Enemy" type="KinematicBody2D"]
-position = Vector2( 9.84064, 9.88652 )
+position = Vector2( 921, 530 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 1 )
@@ -29,5 +29,6 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
+
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

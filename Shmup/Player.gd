@@ -5,7 +5,8 @@ var bullet_speed = 1500
 var bullet = preload("res://Bullet.tscn")
 
 func _ready():
-	pass
+	if Globals.highscore > 0:
+		get_node("../CanvasLayer/Score").text = str(Globals.highscore).pad_zeros(4)
 	
 func _physics_process(delta):
 	var motion = Vector2()
@@ -42,10 +43,13 @@ func kill():
 
 func _on_Area2D_body_entered(body):
 	if "Enemy" in body.name:
-		kill()
-	if "BigEnemy" in body.name:
-		kill()
-	if "Goal" in body.name:
+		Globals.highscore = 0
 		queue_free()
 		get_tree().change_scene("res://TitleScreen.tscn")
+	if "BigEnemy" in body.name:
+		Globals.highscore = 0
+		queue_free()
+		get_tree().change_scene("res://TitleScreen.tscn")
+	if "Goal" in body.name:
+		kill()
 

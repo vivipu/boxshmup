@@ -14,8 +14,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 6 )
 __meta__ = {
-"_edit_horizontal_guides_": [  ],
-"_edit_use_anchors_": false
+"_edit_horizontal_guides_": [  ]
 }
 
 [node name="Menu" type="VBoxContainer" parent="."]
@@ -103,6 +102,7 @@ show_behind_parent = true
 position = Vector2( 500.434, 323.634 )
 scale = Vector2( 110.12, 48.7489 )
 texture = ExtResource( 7 )
+
 [connection signal="pressed" from="Menu/CenterRow/Buttons/StartGame" to="." method="_on_StartGame_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Fullscreen" to="." method="_on_Fullscreen_pressed"]
