@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	get_tree().paused = false
 	for button in $Menu/CenterRow/Buttons.get_children():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load]) 
 
@@ -13,4 +14,4 @@ func _on_root_resize():
 
 
 func _on_Fullscreen_pressed():
-	OS.window_fullscreen = !OS.window_fullscreen
+	get_tree().change_scene("res://addons/silent_wolf/Scores/Leaderboard.tscn")

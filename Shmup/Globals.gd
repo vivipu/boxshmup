@@ -12,9 +12,15 @@ var y_upper = 41
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-
-	
+	SilentWolf.configure({
+		"api_key": "PLzGRUpqeg7Wt0dtVQw2D6GMxvnrZpSW12clGt7R",
+		"game_id": "boxshmup",
+		"game_version": "1.0.2",
+		 "log_level": 1
+	})
+	SilentWolf.configure_scores({
+		"open_scene_on_close": "res://TitleScreen.tscn"
+	})
 
 func increment_score():
 	highscore += 1

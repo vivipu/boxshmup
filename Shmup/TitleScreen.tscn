@@ -23,9 +23,6 @@ margin_top = 50.0
 margin_right = 1100.0
 margin_bottom = 650.0
 rect_scale = Vector2( 0.839126, 0.839126 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Logo" type="TextureRect" parent="Menu"]
 margin_right = 1010.0
@@ -75,6 +72,9 @@ margin_right = 688.0
 margin_bottom = 310.0
 rect_min_size = Vector2( 0, 80 )
 flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
 margin_left = 692.0

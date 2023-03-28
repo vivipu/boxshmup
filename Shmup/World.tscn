@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://light.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Score.gd" type="Script" id=9]
 [ext_resource path="res://Roboto-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Wall.gd" type="Script" id=11]
+[ext_resource path="res://Roboto.tres" type="DynamicFont" id=12]
+[ext_resource path="res://GameOver.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -26,6 +28,26 @@ font_data = ExtResource( 10 )
 
 [sub_resource type="Theme" id=4]
 default_font = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 12
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 20
+font_data = ExtResource( 10 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.329412, 0.603922, 0.823529, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.329412, 0.603922, 0.823529, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.329412, 0.603922, 0.823529, 1 )
 
 [node name="World" type="Node2D"]
 position = Vector2( 309.139, 158.436 )
@@ -100,11 +122,10 @@ script = ExtResource( 11 )
 position = Vector2( 1271.86, 632.564 )
 
 [node name="EnemyTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.35
 autostart = true
 
 [node name="BigEnemyTimer" type="Timer" parent="."]
-wait_time = 1.5
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -118,6 +139,66 @@ theme = SubResource( 4 )
 text = "0000"
 script = ExtResource( 9 )
 
+[node name="GameOver" type="CanvasLayer" parent="CanvasLayer"]
+pause_mode = 2
+visible = false
+script = ExtResource( 13 )
+
+[node name="BG" type="ColorRect" parent="CanvasLayer/GameOver"]
+margin_left = 395.0
+margin_top = 211.0
+margin_right = 435.0
+margin_bottom = 251.0
+rect_scale = Vector2( 5.68661, 4.72034 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.835294 )
+
+[node name="ScoreText" type="RichTextLabel" parent="CanvasLayer/GameOver"]
+margin_left = 400.0
+margin_top = 224.0
+margin_right = 620.0
+margin_bottom = 368.0
+custom_fonts/normal_font = ExtResource( 12 )
+text = "Game over! 
+
+Your score was "
+fit_content_height = true
+
+[node name="Score" type="RichTextLabel" parent="CanvasLayer/GameOver"]
+margin_left = 559.0
+margin_top = 281.0
+margin_right = 599.0
+margin_bottom = 321.0
+custom_fonts/normal_font = ExtResource( 12 )
+text = "0"
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer/GameOver"]
+margin_left = 402.0
+margin_top = 333.0
+margin_right = 602.0
+margin_bottom = 373.0
+custom_fonts/normal_font = SubResource( 6 )
+text = "Enter your name for the leaderboard!"
+scroll_active = false
+
+[node name="PlayerName" type="TextEdit" parent="CanvasLayer/GameOver"]
+margin_left = 401.0
+margin_top = 351.0
+margin_right = 571.0
+margin_bottom = 391.0
+custom_fonts/font = SubResource( 10 )
+
+[node name="Enter" type="Button" parent="CanvasLayer/GameOver"]
+margin_left = 574.0
+margin_top = 351.0
+margin_right = 614.0
+margin_bottom = 391.0
+custom_fonts/font = ExtResource( 12 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 7 )
+text = "Go"
+
 [connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
 [connection signal="timeout" from="BigEnemyTimer" to="." method="_on_BigEnemyTimer_timeout"]
+[connection signal="pressed" from="CanvasLayer/GameOver/Enter" to="CanvasLayer/GameOver" method="_on_Enter_pressed"]

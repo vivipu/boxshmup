@@ -43,13 +43,15 @@ func kill():
 
 func _on_Area2D_body_entered(body):
 	if "Enemy" in body.name:
-		Globals.highscore = 0
-		queue_free()
-		get_tree().change_scene("res://TitleScreen.tscn")
+		#Globals.highscore = 0
+		get_node("../CanvasLayer/GameOver/Score").text = str(Globals.highscore)
+		get_tree().paused = true
+		get_node("../CanvasLayer/GameOver").show()
 	if "BigEnemy" in body.name:
-		Globals.highscore = 0
-		queue_free()
-		get_tree().change_scene("res://TitleScreen.tscn")
+		#Globals.highscore = 0
+		get_node("../CanvasLayer/GameOver/Score").text = str(Globals.highscore)
+		get_tree().paused = true
+		get_node("../CanvasLayer/GameOver").show()
 	if "Goal" in body.name:
 		kill()
 

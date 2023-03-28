@@ -28,6 +28,7 @@ config/windows_native_icon="res://lightyellow.ico"
 [autoload]
 
 Globals="*res://Globals.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 [display]
 
