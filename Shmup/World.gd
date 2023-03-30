@@ -4,15 +4,15 @@ var tiless
 var map
 
 var x_lower = -18
-var x_upper = 81
+var x_upper = 45
 var y_lower = -8
-var y_upper = 41
+var y_upper = 28
 var highscore = 0
 
 var enemy = preload("res://Enemy.tscn")
 var bigEnemy = preload("res://BigEnemy.tscn")
 
-var start_pos = Vector2(300, 300)
+var start_pos = Vector2(300,300)
 var offset = 137
 var gen = RandomNumberGenerator.new()
 
