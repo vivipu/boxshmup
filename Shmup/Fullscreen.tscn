@@ -3,7 +3,7 @@
 [ext_resource path="res://Options.tscn" type="PackedScene" id=1]
 
 [node name="MenuButton" instance=ExtResource( 1 )]
-margin_right = 380.0
+margin_right = 500.0
 
 [node name="Label" parent="." index="0"]
 margin_right = -70.0

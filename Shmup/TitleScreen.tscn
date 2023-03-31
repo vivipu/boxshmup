@@ -57,9 +57,9 @@ flat = true
 scene_to_load = "res://World.tscn"
 
 [node name="Options" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
-margin_top = 115.0
+margin_top = 104.0
 margin_right = 180.0
-margin_bottom = 195.0
+margin_bottom = 184.0
 rect_min_size = Vector2( 180, 80 )
 size_flags_horizontal = 0
 size_flags_vertical = 2
@@ -67,14 +67,13 @@ flat = true
 scene_to_load = "res://AboutMenu.tscn"
 
 [node name="Fullscreen" parent="Menu/CenterRow/Buttons" instance=ExtResource( 8 )]
-margin_top = 230.0
-margin_right = 688.0
-margin_bottom = 310.0
-rect_min_size = Vector2( 0, 80 )
+margin_top = 209.0
+margin_right = 400.0
+margin_bottom = 289.0
+rect_min_size = Vector2( 400, 80 )
+size_flags_horizontal = 0
+size_flags_vertical = 2
 flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
 margin_left = 692.0

@@ -165,10 +165,11 @@ Your score was "
 fit_content_height = true
 
 [node name="Score" type="RichTextLabel" parent="CanvasLayer/GameOver"]
-margin_left = 559.0
-margin_top = 281.0
-margin_right = 599.0
-margin_bottom = 321.0
+margin_left = 555.0
+margin_top = 280.0
+margin_right = 595.0
+margin_bottom = 320.0
+rect_scale = Vector2( 1.04318, 1.00561 )
 custom_fonts/normal_font = ExtResource( 12 )
 text = "0"
 
